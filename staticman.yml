@@ -1,0 +1,82 @@
+# Name of the property. You can have multiple properties with completely
+# different config blocks for different sections of your site.
+# For example, you can have one property to handle comment submission and
+# another one to handle posts.
+comments:
+  # (*) REQUIRED
+  #
+  # Names of the fields the form is allowed to submit. If a field that is
+  # not here is part of the request, an error will be thrown.
+  allowedFields: ["name", "email", "url", "message", "replying_to_uid"]
+
+  # (*) REQUIRED
+  #
+  # Name of the branch being used. Must match the one sent in the URL of the
+  # request.
+  branch: master
+
+  # Text to use as the commit message or pull request title. Accepts placeholders.
+  commitMessage: "Comment from {fields.name} on {options.slug}"
+
+  # (*) REQUIRED
+  #
+  # Destination path (filename) for the data files. Accepts placeholders.
+  filename: "entry{@timestamp}"
+
+  # The format of the generated data files. Accepted values are "json", "yaml"
+  # or "frontmatter"
+  format: "yaml"
+
+  # List of fields to be populated automatically by Staticman and included in
+  # the data file. Keys are the name of the field. The value can be an object
+  # with a `type` property, which configures the generated field, or any value
+  # to be used directly (e.g. a string, number or array)
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "timestamp-seconds"
+
+  # Whether entries need to be appproved before they are published to the main
+  # branch. If set to `true`, a pull request will be created for your approval.
+  # Otherwise, entries will be published to the main branch automatically.
+  moderation: true
+
+  # Name of the site. Used in notification emails.
+  name: "Tech Stuff and Such"
+
+  # Notification settings. When enabled, users can choose to receive notifications
+  # via email when someone adds a reply or a new comment. This requires an account
+  # with Mailgun, which you can get for free at http://mailgun.com.
+  notifications:
+    # Enable notifications
+    enabled: true
+
+    # (!) ENCRYPTED
+    #
+    # Mailgun API key
+    apiKey: "hdu/wQoicZVfhH4VF3HRySw1sj57xRzXHCZheMtwqDzTByL/eMoLW0qUqBn6Mgs2+zYNlRhiNczamQnarwsRFvzYVtBokfNIkDiELRiN1FkOSeg3tQnPjRu46jZ8QsgFykbZw8XxRcf4vp4AsUHSlvHBqxYIsd0XT6gWq0CMf+DRxSkZL3ruN5cbtcL0ZvjpPKz6ExCVwEV/o1Psqct4Mc/69C8QweyPWWszSbuo+AzexurIRtIFJresgj+veaaPoaBl+JufIfRFXJe/Rpio4ZfsoewEbz1QnwDxzGRTPUviPyWuD64u41ZM+Z4N1JV83jEfjXyy8f1etGH85ncYYB9F4gEuxb11xiBcSgUIUPT8p5ZS2SlYuVtLCPtq6mFecmRdcRqAFjEkMa0iRbf6Trj8OFHw1VtWOHc8nn9MgYBtjNq8pkPajNoTe1kFt5x3xgnkI5O4XvhNHBHcHYatp8hEeTPCa0N4h98lbq18h7CdctrgwnpX3Is10eSPl+gwbDg7C6DY+PjDsih2R1lq/Oloy2TSqG6gCrU1fbePlIl6ODtdP6Cw3vBRf8QU7kFdIp5SMp8i9hntljieU6WqvFGLywERes1a8r0us0UxkLquOb7UO2SBaHV7TCyfGzpYft6/x5elGqKLeL6nHWUEEDP5RgFUttbhg+ctrW5tnIc="
+
+    # (!) ENCRYPTED
+    #
+    # Mailgun domain (encrypted)
+    domain: "pyu4dkLqKHoLEhtXvaG0WAF0tHp1jkvEPsDf/zoGzu5qp98pFPD3FrYbLBb9qDIamhXZoQFXXRcDm3I49t/96dpOts8Bv72ooy4bZdhDMFGimwjbdyfnOLHr8HU5TFjF1qBMsG7qAFsLdyYw7vr2patZKGKZ7kEzLCL2mT1lHNGoAdxdt4J6elGcd5n537Oln0ZIsh+TDdmWXP9JbqDA6IEGRGBtnHrDwOJZsOEoqlDy84lrlCS+qYGUOgPZRXFhmSm+CukTiA+AfQKyCG7kKTKUDUJ2uGRKo8DWkba4Kpibptn6rqMRTtG4CtZWldD2317Sc9jM+Pc62J1b2gLsCCMCQ4dHtazQHZr/F8YdHXnvKQq9+eQgX5ZPuA0DBsSRAN4iOhWsLU26LjyYG6v0675doSf0iZ7t5oBFRkmJ0RW8Urpd/2mTtS9kMafittnMXtXh5f8mTBERov2te5HljwJ8sKik/cqNI87q8GZmNRK9x7oxveVrVYcqFihjRRPUHL4g3kQC79MIoQu+cmC24/duceyc57BGpkhVzvbO78gV7nh0rD3FSqZRqKdrXy/Z1Am6S7Od1sD81z8qWQqyQ847VoZZtTMzj8sxBCzBUL9+INGfZI0oC18wKB22PVh1UKHM8frrN+9vc/WV+hCh4WJf9I93VeZnvpwdWBiKXpo="
+
+  # (*) REQUIRED
+  #
+  # Destination path (directory) for the data files. Accepts placeholders.
+  path: "_data/comments/{options.slug}"
+
+  # Names of required fields. If any of these isn't in the request or is empty,
+  # an error will be thrown.
+  requiredFields: ["name", "message"]
+
+  # List of transformations to apply to any of the fields supplied. Keys are
+  # the name of the field and values are possible transformation types.
+  transforms:
+    email: md5
+
+  reCaptcha:
+    enabled: false
+    siteKey: "6LeQ-dIZAAAAABGkUNlB7tzGUYB7_MSg6BW7VmO6"
+    secret: "a5qn9LbM6wHOSjDTwai8mAFjPK41kKCAxQPQg3bq5BzVEjcxbH3GyVy1roailBbmFdiScTfR47pEMZWMGWEC10UTVEnMyxtdXd4Ou9+w6OPfeXt1ZZ1KRUo0ZCfCPz6Xc3PH4JIGN7ZOljCVXNxTpKY0f4rA5Oo2p2+Zhmpc65hIz7QuJW5xr5QDqz2E025cig7+stGWh5B2usoiwTkKmjZ8MgwQz3ChKNIW0PZbbBYp6OGd8naZuN/DPSgCpg9bd/HJ6JqEYZuIKzU4moFQsa1VWF91rbbDT7pRfr/QGH13Id4bouM6zFrTurFqBFh7/WYZjUmbWCCMfvsg1yccwINIgJm0ex7mLOTPYcsdRzv0rrebqwbBk/RWQxnZascrg/LYww2wRwIDAe1jiUJrRTFa2yuEBKd23eVbtG5APAIVSOWpiiJrzH3sO5QEZIe2hc8JbBSc7xCnQquPYzMjJ7cP/NYveOO46gKDROQdfunyVFtKkFpkteoyJsbEoAmd9CGc5fFRBzZGiMw+rTt5kR+rBKWm+w/WpGj+MiEHXhYnsmgndAhBrBBEY4A14xwSnkkqnILUUGR7WD9xg8iTmJydGtGhwECNKwGnjP3ZArCLgKTwinuLJuxJoYBNKwp2tSRXcXeVGeKbxrT9oLvRWmRQ8fLoH7O9cT88lT8uaxk="
