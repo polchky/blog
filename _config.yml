@@ -33,8 +33,13 @@ theme: minima
 plugins:
   - jekyll-feed
 
-# staticman
+# comments
 staticman_url: https://staticman.polchky.io/v2/entry/polchky/blog/master/comments
+comments: true
+reCaptcha: 
+  siteKey: "6LeQ-dIZAAAAABGkUNlB7tzGUYB7_MSg6BW7VmO6"
+  secret: "a5qn9LbM6wHOSjDTwai8mAFjPK41kKCAxQPQg3bq5BzVEjcxbH3GyVy1roailBbmFdiScTfR47pEMZWMGWEC10UTVEnMyxtdXd4Ou9+w6OPfeXt1ZZ1KRUo0ZCfCPz6Xc3PH4JIGN7ZOljCVXNxTpKY0f4rA5Oo2p2+Zhmpc65hIz7QuJW5xr5QDqz2E025cig7+stGWh5B2usoiwTkKmjZ8MgwQz3ChKNIW0PZbbBYp6OGd8naZuN/DPSgCpg9bd/HJ6JqEYZuIKzU4moFQsa1VWF91rbbDT7pRfr/QGH13Id4bouM6zFrTurFqBFh7/WYZjUmbWCCMfvsg1yccwINIgJm0ex7mLOTPYcsdRzv0rrebqwbBk/RWQxnZascrg/LYww2wRwIDAe1jiUJrRTFa2yuEBKd23eVbtG5APAIVSOWpiiJrzH3sO5QEZIe2hc8JbBSc7xCnQquPYzMjJ7cP/NYveOO46gKDROQdfunyVFtKkFpkteoyJsbEoAmd9CGc5fFRBzZGiMw+rTt5kR+rBKWm+w/WpGj+MiEHXhYnsmgndAhBrBBEY4A14xwSnkkqnILUUGR7WD9xg8iTmJydGtGhwECNKwGnjP3ZArCLgKTwinuLJuxJoYBNKwp2tSRXcXeVGeKbxrT9oLvRWmRQ8fLoH7O9cT88lT8uaxk="
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
